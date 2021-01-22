@@ -1,6 +1,6 @@
 # -*- coding: utf8 -*-
 import re
-
+import sys
 # Help Function - 수정하지 말 것
 
 
@@ -294,7 +294,7 @@ def main():
     if is_help_command(msg):
         print(get_help_message())
     elif msg == "0":
-        exit()
+        sys.exit(1)
     elif is_validated_english_sentence(msg) or is_validated_morse_code(msg):
         if is_validated_english_sentence(msg):
             print(encoding_sentence(msg))
