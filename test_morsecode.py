@@ -118,8 +118,6 @@ class TestMorseCode(unittest.TestCase):
                 self.assertIn("WRONG", console[4].upper())
                 self.assertIn("WRONG", console[5].upper())
 
-        print(console)
-
         input_list = ["Hello!!", "Hi, Gachon", "This is,! CS50", "WTF!", "--. --", "--. --.  --. -  -  -  - . . . .",
                       "::helo::", "0"]
         with patch('builtins.input', side_effect=input_list):
