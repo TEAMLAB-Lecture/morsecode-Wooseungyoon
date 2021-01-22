@@ -290,18 +290,19 @@ def encoding_sentence(english_sentence):
 def main():
     print("Morse Code Program!!")
     # ===Modify codes below=============
-    msg = input('Input your message(H - Help, 0 - Exit): ')
-    if is_help_command(msg):
-        print(get_help_message())
-    elif msg == "0":
-        sys.exit(1)
-    elif is_validated_english_sentence(msg) or is_validated_morse_code(msg):
-        if is_validated_english_sentence(msg):
-            print(encoding_sentence(msg))
+    while True:
+        msg = input('Input your message(H - Help, 0 - Exit): ')
+        if is_help_command(msg):
+            print(get_help_message())
+        elif msg == "0":
+            break
+        elif is_validated_english_sentence(msg) or is_validated_morse_code(msg):
+            if is_validated_english_sentence(msg):
+                print(encoding_sentence(msg))
+            else:
+                print(decoding_sentence(msg))
         else:
-            print(decoding_sentence(msg))
-    else:
-        print('Wrong Input')
+            print('Wrong Input')
     # ==================================
     print("Good Bye")
     print("Morse Code Program Finished!!")
