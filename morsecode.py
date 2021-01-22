@@ -87,7 +87,7 @@ def is_validated_english_sentence(user_input):
     """
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당 또는 필요에 따라 자유로운 수정
-    special_letter = "_@#$%^&*()-+=[]{}\"\':\|`~"
+    special_letter = "_@#$%^&*()-+=[]{}\"\';:\|`~"
     result = True
     if any(sp in special_letter for sp in user_input):
         result = False
@@ -129,12 +129,13 @@ def is_validated_morse_code(user_input):
     morse_letter, result = ".- ", True
     if any(s not in morse_letter for s in user_input):
         result = False
-    morse = user_input.split(' ')
-    morse_dict = get_morse_code_dict()
-    for m in morse:
-        if m not in morse_dict.values():
-            result = False
 
+    morse = user_input.split('  ')
+    morse_dict = get_morse_code_dict()
+    for morse_word in user_input.split('  '):
+        for morse_ch in morse_word.split():
+            if morse_ch not in morse_dict.values():
+                result = False
     return result
     # ==================================
 
